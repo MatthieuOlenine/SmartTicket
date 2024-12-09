@@ -7,12 +7,12 @@ const https = require('https');
 const fs = require('fs');
 
 //A ACTIVER POUR ENVOYER EN PRODUCTION !!!!!!
-/*
+
 const options = {
     key: fs.readFileSync('/etc/letsencrypt/live/logiqservices.com/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/logiqservices.com/fullchain.pem')
 }
-*/
+
 app.use(cors()); 
 app.use(bodyParser.json()); // Pour analyser le JSON dans le corps des requêtes
 
@@ -182,14 +182,22 @@ app.post('API/SmartInstance/LogIn', (req, res) => {
     res.send(Data);
 });
 
+app.post('API/SmartInstance/UpToDateDataClient', (req, res) => {
+    GenerateInstanceSmartManager();
+    const {_eventname, _name} = req.body;
+    const Data = SmartInstance.LogIn(_eventname, _name);
+    SmartInstance = null;
+    res.send(Data);
+});
+
 //A ACTIVER EN PRODUCTION !!!!
-/*
+
 https.createServer(options, app).listen(1623, () =>{
     console.log('\n Server is running on port 1623 with https\n\nhttps://logiqservices.com:1623\n');
 })
-*/
-// A DESACTIVER AVANT DE BUILD !!!
 
+// A DESACTIVER AVANT DE BUILD !!!
+/*
 app.listen(port, () => {
     console.log('app.js running on port 1623\n\nhttp://localhost:1623');
-});
+});*/
