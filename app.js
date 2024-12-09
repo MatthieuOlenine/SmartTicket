@@ -50,7 +50,7 @@ app.post('/API/BasicInstance/DelEvent', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/BasicInstance/GetEvent', (req, res) => {
+app.get('/API/BasicInstance/GetEvent', (req, res) => {
     GenerateInstanceBasicManager();
     const {} = req.body;
     const Data = BasicInstance.GetEvent();
@@ -58,7 +58,7 @@ app.post('API/BasicInstance/GetEvent', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/BasicInstance/AddRegistered', (req, res) => {
+app.post('/API/BasicInstance/AddRegistered', (req, res) => {
     GenerateInstanceBasicManager();
     const { _eventname, _name } = req.body;
     const Data = BasicInstance.AddRegistered(_eventname, _name);
@@ -66,7 +66,7 @@ app.post('API/BasicInstance/AddRegistered', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/BasicInstance/DelRegistered', (req, res) => {
+app.post('/API/BasicInstance/DelRegistered', (req, res) => {
     GenerateInstanceBasicManager();
     const { _eventname, _name } = req.body;
     const Data = BasicInstance.DelRegistered(_eventname, _name);
@@ -74,7 +74,7 @@ app.post('API/BasicInstance/DelRegistered', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/BasicInstance/LogIn', (req, res) => {
+app.post('/API/BasicInstance/LogIn', (req, res) => {
     GenerateInstanceBasicManager();
     const {_eventname, _name} = req.body;
     const Data = BasicInstance.LogIn(_eventname, _name);
@@ -100,7 +100,7 @@ app.post('/API/DynamicInstance/DelEvent', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/DynamicInstance/GetEvent', (req, res) => {
+app.get('/API/DynamicInstance/GetEvent', (req, res) => {
     GenerateInstanceDynamicManager();
     const {} = req.body;
     const Data = DynamicInstance.GetEvent();
@@ -108,7 +108,7 @@ app.post('API/DynamicInstance/GetEvent', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/DynamicInstance/AddRegistered', (req, res) => {
+app.post('/API/DynamicInstance/AddRegistered', (req, res) => {
     GenerateInstanceDynamicManager();
     const { _eventname, _name } = req.body;
     const Data = DynamicInstance.AddRegistered(_eventname, _name);
@@ -116,7 +116,7 @@ app.post('API/DynamicInstance/AddRegistered', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/DynamicInstance/DelRegistered', (req, res) => {
+app.post('/API/DynamicInstance/DelRegistered', (req, res) => {
     GenerateInstanceDynamicManager();
     const { _eventname, _name } = req.body;
     const Data = DynamicInstance.DelRegistered(_eventname, _name);
@@ -124,7 +124,7 @@ app.post('API/DynamicInstance/DelRegistered', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/DynamicInstance/LogIn', (req, res) => {
+app.post('/API/DynamicInstance/LogIn', (req, res) => {
     GenerateInstanceDynamicManager();
     const {_eventname, _name} = req.body;
     const Data = DynamicInstance.LogIn(_eventname, _name);
@@ -150,7 +150,7 @@ app.post('/API/SmartInstance/DelEvent', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/SmartInstance/GetEvent', (req, res) => {
+app.get('/API/SmartInstance/GetEvent', (req, res) => {
     GenerateInstanceSmartManager();
     const {} = req.body;
     const Data = SmartInstance.GetEvent();
@@ -158,7 +158,7 @@ app.post('API/SmartInstance/GetEvent', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/SmartInstance/AddRegistered', (req, res) => {
+app.post('/API/SmartInstance/AddRegistered', (req, res) => {
     GenerateInstanceSmartManager();
     const { _eventname, _name } = req.body;
     const Data = SmartInstance.AddRegistered(_eventname, _name);
@@ -166,7 +166,7 @@ app.post('API/SmartInstance/AddRegistered', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/SmartInstance/DelRegistered', (req, res) => {
+app.post('/API/SmartInstance/DelRegistered', (req, res) => {
     GenerateInstanceSmartManager();
     const { _eventname, _name } = req.body;
     const Data = SmartInstance.DelRegistered(_eventname, _name);
@@ -174,7 +174,7 @@ app.post('API/SmartInstance/DelRegistered', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/SmartInstance/LogIn', (req, res) => {
+app.post('/API/SmartInstance/LogIn', (req, res) => {
     GenerateInstanceSmartManager();
     const {_eventname, _name, _parameter} = req.body;
     const Data = SmartInstance.LogIn(_eventname, _name, _parameter);
@@ -182,7 +182,7 @@ app.post('API/SmartInstance/LogIn', (req, res) => {
     res.send(Data);
 });
 
-app.post('API/SmartInstance/UpToDateDataClient', (req, res) => {
+app.post('/API/SmartInstance/UpToDateDataClient', (req, res) => {
     GenerateInstanceSmartManager();
     const {_eventname, _name} = req.body;
     const Data = SmartInstance.LogIn(_eventname, _name);
