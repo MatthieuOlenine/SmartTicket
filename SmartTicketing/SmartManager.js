@@ -63,7 +63,7 @@ class SmartManager {
         const NewRegistered = {
             parameter : "admin",
             name : _name,
-            address : crypto.createHash('sha256').update(_name).digest('hex'),
+            address : crypto.createHash('sha256').update("admin" + _name).digest('hex'),
             horodatage : new Date().toISOString()
         }
 
@@ -93,7 +93,8 @@ class SmartManager {
         for (let i of this.Data) {
             if (i.name === _eventname) {
                 for (let j of i.registered) {
-                    j.parameter = _parameter
+                    j.parameter = _parameter;
+                    j.address = crypto.createHash('sha256').update(_parameter + j.name).digest('hex');
                 }
             }
         }
@@ -117,11 +118,11 @@ class SmartManager {
         this.UpToDate()
     }
 
-    LogIn(_eventname, _name) {
+    LogIn(_eventname, _name, _parameter) {
         for (let i of this.Data) {
             if (i.name === _eventname) {
                 for (let j of i.registered) {
-                    if (j.name === _name) {
+                    if (j.address === crypto.createHash('sha256').update(_parameter + _name).digest('hex')) {
                         this.SetRegistered(_eventname, _name);
                         return(true)
                     }
@@ -129,6 +130,10 @@ class SmartManager {
                 return(false)
             }
         }
+    }
+
+    UpToDateDataClient(_eventname, _name) {
+
     }
 
     UpToDate() {

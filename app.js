@@ -176,8 +176,8 @@ app.post('API/SmartInstance/DelRegistered', (req, res) => {
 
 app.post('API/SmartInstance/LogIn', (req, res) => {
     GenerateInstanceSmartManager();
-    const {_eventname, _name} = req.body;
-    const Data = SmartInstance.LogIn(_eventname, _name);
+    const {_eventname, _name, _parameter} = req.body;
+    const Data = SmartInstance.LogIn(_eventname, _name, _parameter);
     SmartInstance = null;
     res.send(Data);
 });
