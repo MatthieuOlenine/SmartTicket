@@ -118,11 +118,11 @@ class SmartManager {
         this.UpToDate()
     }
 
-    LogIn(_eventname, _name, _parameter) {
+    LogIn(_eventname, _address) {
         for (let i of this.Data) {
             if (i.name === _eventname) {
                 for (let j of i.registered) {
-                    if (j.address === crypto.createHash('sha256').update(_parameter + _name).digest('hex')) {
+                    if (j.address === _address) {
                         this.SetRegistered(_eventname, _name);
                         return(true)
                     }
@@ -133,7 +133,16 @@ class SmartManager {
     }
 
     UpToDateDataClient(_eventname, _name) {
-
+        for (let i of this.Data) {
+            if (i.name === _eventname) {
+                for (let j of i.registered) {
+                    if (j.name === _name) {
+                        return(j.address)
+                    }
+                }
+                return(false)
+            }
+        }
     }
 
     UpToDate() {
