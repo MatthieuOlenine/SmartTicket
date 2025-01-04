@@ -117,11 +117,11 @@ class SmartManager {
         this.UpToDate()
     }
 
-    LogIn(_eventname, _name) {
+    LogIn(_eventname, _name, _token) {
         for (let i of this.Data) {
             if (i.name === _eventname) {
                 for (let j of i.registered) {
-                    if (j.name === _name) {
+                    if (j.name === _name && j.parameter === _token) {
                         this.SetRegistered(_eventname, _name);
                         return(true)
                     }
@@ -136,10 +136,10 @@ class SmartManager {
             if (i.name === _eventname) {
                 for (let j of i.registered) {
                     if (j.name === _name) {
-                        return(j.address)
+                        return(j.parameter)
                     }
                 }
-                return(false)
+                return ("admin")
             }
         }
     }
